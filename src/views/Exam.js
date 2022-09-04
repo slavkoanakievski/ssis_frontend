@@ -92,7 +92,7 @@ function Exam() {
                     <div className={'row'}>
                         <div className={'col-10 pt-5'}>
                             <FormControl>
-                                <FormLabel id="demo-radio-buttons-group-label"><b>Која компонента се користи за спојување на резултати?</b></FormLabel>
+                                <FormLabel id="demo-radio-buttons-group-label"><b>Која компонента се користи за спојување на резултати од податоци?</b></FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
                                     defaultValue="female"
