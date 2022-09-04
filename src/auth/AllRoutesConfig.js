@@ -6,6 +6,7 @@ import AllQuizzesView from "../views/AllQuizzesView.js";
 import QuizDetailsView from "../views/QuizDetailsView"
 import LectureView from  "../views/LectureView"
 import Forum from "../views/Forum"
+import Exam from "../views/Exam"
 
 export const routesConfig = [
     {
@@ -48,6 +49,12 @@ export const routesConfig = [
         component: Forum,
         path: '/forum',
         title: 'Forum',
+        exact: true
+    },
+    {
+        component: Exam,
+        path: '/exam',
+        title: 'Exam',
         exact: true
     }
 

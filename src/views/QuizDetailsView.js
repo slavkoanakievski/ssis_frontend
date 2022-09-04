@@ -98,7 +98,7 @@ function QuizDetailsView() {
                                 </span>
                             </div>
                             <div className={'col-5 d-flex justify-content-end mb-2'}>
-                                <a href={'#'} className={'btn btn-lg'} style={{backgroundColor:'rgba(100,149,237)', color:'white'}}>Тестирај го твоето знаење!</a>
+                                <a href={'/exam'} className={'btn btn-lg'} style={{backgroundColor:'rgba(100,149,237)', color:'white'}}>Тестирај го твоето знаење!</a>
 
                             </div>
                         </div>

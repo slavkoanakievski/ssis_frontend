@@ -15,7 +15,7 @@ function MenuTopBar({active}) {
                 <Link to={"/home"} className="navbar-brand m-0">
                     <img src={logo} style={{height: 50, width: 50}} className="d-inline-block align-top" alt=""/>
                 </Link>
-                <Link to={"/courses"} className={`${classes.mainColorText} ${classes.mainFont} ${classes.hoverStyleLogo} nav-link`} style={{fontSize: 18}}><span className={`${classes.mainColorText}`}>Систем за учење на <b>Microsoft SSIS </b></span></Link>
+                <Link to={"/home"} className={`${classes.mainColorText} ${classes.mainFont} ${classes.hoverStyleLogo} nav-link`} style={{fontSize: 18}}><span className={`${classes.mainColorText}`}>Систем за учење на <b>Microsoft SSIS </b></span></Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"/>
