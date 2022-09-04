@@ -51,7 +51,7 @@ function LectureView() {
                         </div>
                         <div className={'row'}>
                             <div className={'col-6'}>
-                            <iframe className={'mt-2'} width="560" height="315" src="https://www.youtube.com/embed/wyn-PkJB3Lk"
+                            <iframe className={'mt-2'} width="620" height="415" src="https://www.youtube.com/embed/wyn-PkJB3Lk"
                                     title="YouTube video player" frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen></iframe>

@@ -1,10 +1,11 @@
-import {FETCH_COURSE, FETCH_COURSES, FETCH_QUIZ, FETCH_QUIZZES} from "../actionTypes";
+import {FETCH_COURSE, FETCH_COURSES, FETCH_QUESTIONS, FETCH_QUIZ, FETCH_QUIZZES} from "../actionTypes";
 
 const initialState = {
     courses: [],
     course: {},
     quizzes: [],
-    quiz: {}
+    quiz: {},
+    questions: []
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -24,6 +25,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 quizzes: action.quizzes
+            }
+        }
+        case FETCH_QUESTIONS: {
+            return {
+                ...state,
+                questions: action.questions
             }
         }
         case FETCH_QUIZ: {

@@ -34,7 +34,7 @@ function QuizDetailsView() {
                     <KeyboardBackspaceIcon fontSize={'big'}  onClick={() => history.goBack()}/>
                 </IconButton>
             </div>
-            <div className={`container p-3`} style={{backgroundColor: 'rgba(255,255,255)' , height: '650px'}}>
+            <div className={`container p-3`} style={{backgroundColor: 'rgba(255,255,255)' , height: '700px'}}>
 
                 <div className={`row`} >
                     <div className={'col-4'} style={{fontSize: '14px'}}>
@@ -78,6 +78,14 @@ function QuizDetailsView() {
                             </div>
                             <div className={'col-6 m-auto'} style={{color: 'rgba(0,0,0,.55)'}} >
                                 {quiz.level}
+                            </div>
+                        </div>
+                        <div className={`row ${classes.border} d-flex`} style={{height: '18%'}}>
+                            <div className={'col-6 m-auto'}>
+                                Код на квизот:
+                            </div>
+                            <div className={'col-6 m-auto'} style={{color: 'rgba(0,0,0,.55)'}} >
+                                {quiz.code}
                             </div>
                         </div>
 

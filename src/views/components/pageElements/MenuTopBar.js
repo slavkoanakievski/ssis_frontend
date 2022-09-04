@@ -36,7 +36,7 @@ function MenuTopBar({active}) {
                     </li>
                     <li className="nav-item">
                         <Link to={'/forum'}
-                              className={active === 'Exam' ? `nav-link ${classes.menuItemSelected}` : `nav-link`}>
+                              className={active === 'Forum' ? `nav-link ${classes.menuItemSelected}` : `nav-link`}>
                             Форум
                         </Link>
                     </li>

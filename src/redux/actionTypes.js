@@ -5,3 +5,5 @@ export const FETCH_COURSE = "FETCH_COURSE"
 export const FETCH_QUIZZES = "FETCH_QUIZZES"
 
 export const FETCH_QUIZ = "FETCH_QUIZ"
+
+export const FETCH_QUESTIONS = "FETCH_QUESTIONS"

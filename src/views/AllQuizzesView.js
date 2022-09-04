@@ -33,6 +33,7 @@ function AllQuizzesView() {
                    <IconButton size={'medium'} className={'mb-1'} style={{marginRight: '10px'}} onClick={() => history.goBack()}>
                        <KeyboardBackspaceIcon fontSize={'big'}  />
                    </IconButton>
+                   <span style={{fontSize:'40px', color: 'rgba(100,149,237)'}}>Квизови</span>
                <div className={'row justify-content-around '}>
            {quizzes && quizzes.map((quiz)=>
                {

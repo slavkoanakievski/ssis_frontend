@@ -1,4 +1,4 @@
-import {FETCH_COURSE, FETCH_COURSES, FETCH_QUIZ, FETCH_QUIZZES} from "../actionTypes";
+import {FETCH_COURSE, FETCH_COURSES, FETCH_QUESTIONS, FETCH_QUIZ, FETCH_QUIZZES} from "../actionTypes";
 import axios from "../../axios/axiosInstance";
 
 
@@ -32,6 +32,14 @@ export const coursesAction = {
             dispatch({
                 type: FETCH_QUIZ,
                 quiz: resp.data
+            })
+        })
+    },
+    fetchQuestions: () => dispatch => {
+        axios.get("/questions").then(resp => {
+            dispatch({
+                type: FETCH_QUESTIONS,
+                questions: resp.data
             })
         })
     },
