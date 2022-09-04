@@ -2,6 +2,9 @@ import {Route, Switch} from 'react-router-dom';
 import HomeView from "../views/HomeView";
 import CoursesView from "../views/CoursesView";
 import CourseDetailsView from "../views/CourseDetailsView";
+import AllQuizzesView from "../views/AllQuizzesView.js";
+import QuizDetailsView from "../views/QuizDetailsView"
+import LectureView from  "../views/LectureView"
 
 export const routesConfig = [
     {
@@ -21,7 +24,27 @@ export const routesConfig = [
         path: '/courses/:id',
         title: 'CoursesDetailsView',
         exact: true
+    },
+    {
+        component: AllQuizzesView,
+        path: '/quizzes',
+        title: 'AllQuizzesView',
+        exact: true
+    },
+    {
+        component: QuizDetailsView,
+        path: '/quizzes/:id',
+        title: 'QuizDetailsView',
+        exact: true
+    },
+    {
+        component: LectureView,
+        path: '/lecture',
+        title: 'LectureView',
+        exact: true
     }
+
+
 ]
 
 const AllRoutes = () => {

@@ -11,7 +11,8 @@ import StairsTwoToneIcon from '@mui/icons-material/StairsTwoTone';
 import {Chip} from "@mui/material";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ClassTwoToneIcon from '@mui/icons-material/ClassTwoTone';
-import {LinearProgress} from "@material-ui/core";
+import {IconButton, LinearProgress} from "@material-ui/core";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 function CoursesView() {
     const dispatch = useDispatch();
@@ -27,9 +28,14 @@ function CoursesView() {
 
     return (
         <>
-            <MenuTopBar/>
+            <MenuTopBar active={'Courses'}/>
             <div className={`${classes.bodyStyle} p-3`}>
                 <div className={'container'} style={{marginTop: '80px'}}>
+                    <div className={'mb-2'}>
+                        <IconButton size={'medium'} className={'mb-1'} style={{marginRight: '10px'}} onClick={() => history.goBack()}>
+                            <KeyboardBackspaceIcon fontSize={'big'}  />
+                        </IconButton>
+                    </div>
                     <span className={'row mb-4'}>
                         <span>
                             <LocalLibraryTwoToneIcon

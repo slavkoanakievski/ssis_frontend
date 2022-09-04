@@ -1,8 +1,10 @@
-import {FETCH_COURSE, FETCH_COURSES} from "../actionTypes";
+import {FETCH_COURSE, FETCH_COURSES, FETCH_QUIZ, FETCH_QUIZZES} from "../actionTypes";
 
 const initialState = {
     courses: [],
-    course: {}
+    course: {},
+    quizzes: [],
+    quiz: {}
 }
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -16,6 +18,18 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 course: action.course
+            }
+        }
+        case FETCH_QUIZZES: {
+            return {
+                ...state,
+                quizzes: action.quizzes
+            }
+        }
+        case FETCH_QUIZ: {
+            return {
+                ...state,
+                quiz: action.quiz
             }
         }
         default:

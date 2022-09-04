@@ -19,8 +19,8 @@ export const theme = createTheme({
             }
         },
         menuItemSelected: {
-            borderBottom: '1px solid rgb(229, 170, 22)',
-            color: 'rgb(229, 170, 22)',
+            borderBottom: '1px solid rgba(100,149,237)',
+            color: 'rgba(100,149,237)',
         },
         hoverStyleLogo: {
             "&:hover": {

@@ -24,13 +24,13 @@ function MenuTopBar({active}) {
                 <ul className={`${classes.menuItemHover} navbar-nav d-flex justify-content-around w-100`}>
                     <li className="nav-item">
                         <Link to={'/home'}
-                              className={active === 'Courses' ? `nav-link ${classes.menuItemSelected}` : `nav-link`}>
+                              className={active === 'Home' ? `nav-link ${classes.menuItemSelected}` : `nav-link`}>
                             Почетна
                         </Link>
                     </li>
                     <li className="nav-item">
                         <Link to={'/courses'}
-                              className={active === 'LearningPath' ? `nav-link ${classes.menuItemSelected}` : `nav-link`}>
+                              className={active === 'Courses' ? `nav-link ${classes.menuItemSelected}` : `nav-link`}>
                             Курсеви
                         </Link>
                     </li>
@@ -42,7 +42,7 @@ function MenuTopBar({active}) {
                     </li>
                     <li className="nav-item">
                         <Link to={'/quizzes'}
-                              className={active === 'DaxFunctions' ? `nav-link ${classes.menuItemSelected}` : `nav-link`}>
+                              className={active === 'Quiz' ? `nav-link ${classes.menuItemSelected}` : `nav-link`}>
                             Квизови
                         </Link>
                     </li>

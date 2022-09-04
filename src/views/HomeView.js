@@ -20,7 +20,7 @@ function HomeView() {
 
     return (
         <>
-            <MenuTopBar/>
+            <MenuTopBar active={'Home'}/>
             <div className={`${classes.bodyStyle} p-3`}>
                 <div className={'container'} style={{marginTop: '80px'}}>
                     <div className={'row'}>

@@ -44,13 +44,14 @@ function CourseDetailsView() {
 
     return (
         <div className={'container p-5 mt-3'}>
-            <div className={'mb-2'}>
-                <IconButton size={'medium'} className={'mb-1'} style={{marginRight: '10px'}}>
-                    <KeyboardBackspaceIcon fontSize={'big'}  onClick={() => history.goBack()}/>
-                </IconButton>
-            </div>
 
-            <div className={`container p-3`} style={{backgroundColor: 'rgba(255,255,255)' , height: '680px'}}>
+
+            <div className={`container p-3`} style={{backgroundColor: 'rgba(255,255,255)' , height: '800px'}}>
+                <div className={'mb-2'}>
+                    <IconButton size={'medium'} className={'mb-1'} style={{marginRight: '10px'}}>
+                        <KeyboardBackspaceIcon fontSize={'big'}  onClick={() => history.goBack()}/>
+                    </IconButton>
+                </div>
                 <div className={`row`} >
                     <div className={'col-4'} style={{fontSize: '14px'}}>
                         <div className={`row ${classes.border} d-flex`} style={{height: '30%'}}>
@@ -123,18 +124,8 @@ function CourseDetailsView() {
                                 </span>
                             </div>
                             <div className={'col-6 d-flex justify-content-end mb-2'}>
-                                <Button variant="outlined"
-                                        sx={{color: 'rgba(100,149,237)',
-                                            borderColor: 'rgba(100,149,237)',
-                                            marginTop: '8px',
-                                            '&:hover': {
-                                                backgroundColor: 'rgba(100,149,237)',
-                                                borderColor: 'rgba(100,149,237)',
-                                                boxShadow: 'none',
-                                            }}}
-                                        endIcon={<StartIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10)', }} />}>
-                                    Започни со учење
-                                </Button>
+                                <a href={'/lecture'} className={'btn btn-lg'} style={{backgroundColor:'rgba(100,149,237)', color:'white'}}>Започни со учење!</a>
+
                             </div>
                         </div>
                         <div className={'row p-2'}>
