@@ -1,4 +1,3 @@
-import logo from '../img/ssis_logo.jpg';
 import * as yup from "yup";
 import {useEffect, useState} from "react";
 import {FormikProvider, useFormik} from "formik";
