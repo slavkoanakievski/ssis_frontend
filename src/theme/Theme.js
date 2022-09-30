@@ -24,7 +24,7 @@ export const theme = createTheme({
         },
         hoverStyleLogo: {
             "&:hover": {
-                color: 'rgba(229, 170, 10)',
+                color: 'rgb(100,149,237)',
             }
         },
         bodyStyle: {
@@ -40,7 +40,7 @@ export const theme = createTheme({
         inputField: {
             backgroundColor: 'white',
             "& label.Mui-focused": {
-                color: 'rgba(229, 170, 10)'
+                color: 'rgb(100,149,237)'
             },
             // "&:hover label": {
             //     color: 'rgb(26,179,148)',
@@ -53,7 +53,7 @@ export const theme = createTheme({
                 //     borderColor: `rgb(26,179,148)`,
                 // },
                 "&.Mui-focused fieldset": {
-                    border: '1px solid rgba(229, 170, 10)',
+                    border: '1px solid rgb(100,149,237)',
                 },
             }
         },

@@ -2,14 +2,17 @@ import logo from '../../../img/ssis_logo.jpg';
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
+import {LogoutRounded} from "@mui/icons-material";
 import {IconButton} from "@mui/material";
 import {useStyles} from "../../../factory/StyleFactory";
 import {menuTopBarStyle} from "./style/MenuTopBarStyle";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 function MenuTopBar({active}) {
     const classes = useStyles(menuTopBarStyle);
-    
+    const history = useHistory();
+
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white p-2 position-fixed w-100" style={{zIndex: '900'}}>
                 <Link to={"/home"} className="navbar-brand m-0">
@@ -51,13 +54,10 @@ function MenuTopBar({active}) {
             <div className="d-flex justify-content-end" id="navbarText">
                 <div className="d-flex justify-content-around">
                     <IconButton size={'medium'}>
-                        <NotificationsRoundedIcon color={'disabled'} fontSize={'medium'}/>
-                    </IconButton>
-                    <IconButton size={'medium'}>
                         <InfoRoundedIcon color={'disabled'} fontSize={'medium'}/>
                     </IconButton>
                     <IconButton size={'medium'}>
-                        <PersonOutlineRoundedIcon color={'disabled'} fontSize={'medium'}/>
+                        <LogoutRounded onClick={() => history.push("/login")} color={'disabled'} fontSize={'medium'}/>
                     </IconButton>
                 </div>
             </div>
