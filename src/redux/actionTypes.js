@@ -7,3 +7,7 @@ export const FETCH_QUIZZES = "FETCH_QUIZZES"
 export const FETCH_QUIZ = "FETCH_QUIZ"
 
 export const FETCH_QUESTIONS = "FETCH_QUESTIONS"
+
+export const SELECT_QUESTION = "SELECT_QUESTION"
+
+export const GET_EXAM = "GET_EXAM"

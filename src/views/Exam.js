@@ -1,22 +1,48 @@
 import MenuTopBar from "./components/pageElements/MenuTopBar";
-import {FormControl, FormControlLabel, FormLabel, IconButton, Radio, RadioGroup} from "@material-ui/core";
+import {FormControlLabel, IconButton, Radio, RadioGroup} from "@material-ui/core";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import {useDispatch, useSelector} from "react-redux";
 import {useStyles} from "../factory/StyleFactory";
 import {coursesViewStyle} from "./style/CoursesViewStyle";
-import {useHistory} from "react-router-dom";
-import {useEffect} from "react";
-import {coursesAction} from "../redux/action/coursesAction";
+import {useHistory, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {examAction} from "../redux/action/examAction";
+import SubmitExam from "./modal/SubmitExam";
+import {useFormik} from "formik";
 
 function Exam() {
-
+    const id = useParams();
     const classes = useStyles(coursesViewStyle);
     const history = useHistory();
-
+    const dispatch = useDispatch();
+    const exam  = useSelector(state => state.exam.exam);
+    const answers  = useSelector(state => state.exam.answers);
+    const [openSubmitExam, setOpenSubmitExam] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        if(Boolean(id)) {
+            dispatch(examAction.getExam(id.id));
+        }
     }, []);
+
+    const selectAnswer = (questionId, value) => {
+        dispatch(examAction.changeAnswer(questionId, value));
+    }
+
+    const closeSubmitExamModal = () => {
+        setOpenSubmitExam(false)
+    }
+
+    const formik = useFormik({
+        enableReinitialize: true,
+        onSubmit: values => {
+            dispatch(examAction.finishExam(answers, exam.id, success => {
+                history.push("/quizzes/result/" + Math.round(success))
+                window.location.reload(false);
+            }));
+        }
+    });
 
     return (
         <>
@@ -31,87 +57,63 @@ function Exam() {
                     </div>
                     <h3 className={'mb-5'}> Квиз прашања</h3>
                     <div className={'row'}>
-                        <div className={'col-10 '}>
-                        <FormControl>
-                            <FormLabel id="demo-radio-buttons-group-label"><b>Што претставува скратеницата ЕTL процес?</b></FormLabel>
-                            <RadioGroup
-                                aria-labelledby="demo-radio-buttons-group-label"
-                                defaultValue="female"
-                                name="radio-buttons-group"
+                        {exam && exam?.questions?.map((question, i) => {
+                            return (
+                                <div className={'row'}>
+                                    <div className={'col-2'}>
 
-                            >
-                                <FormControlLabel value="Extract, Transform, Load" control={<Radio />} label="Extract, Transform, Load" />
-                                <FormControlLabel value="Extract, Transform" control={<Radio />} label="Extract, Truncate, Load" />
-                                <FormControlLabel value="Load" control={<Radio />} label="Extract, Truncate, Loading" />
-                            </RadioGroup>
-                        </FormControl>
-                        </div>
+                                    </div>
+                                    <div className={'col-8'} style={{
+                                        textAlign: 'justify',
+                                        overflow: 'hidden',
+                                        color: 'rgba(0,0,0,.55)'
+                                    }}>
+                                            <span style={{
+                                                fontWeight: 'bold'
+                                            }}>
+                                                {i+1}. {question.text}
+                                            </span>
+                                        <div className={'p-4'} style={{
+                                            textAlign: 'justify',
+                                            overflow: 'hidden',
+                                            color: 'rgba(0,0,0,.55)'
+                                        }}>
+                                            <RadioGroup id="answers" name="answers" onChange={(e) => selectAnswer(question?.id, e?.target?.value)}>
+                                                {question && question?.answers?.map((answer, j) => {
+                                                    return (
+                                                        <div className={'row'}>
+                                                            <FormControlLabel control={
+                                                                <Radio sx={{
+                                                                    color: 'grey',
+                                                                    '&.Mui-checked': {
+                                                                        color: 'blue',
+                                                                    },
+                                                                    '&:hover': {
+                                                                        backgroundColor: 'blue'
+                                                                    },
+                                                                }} size={'small'}
+                                                                checked={answers?.find((ans) => ans.id === question.id).answer === j+1}/>
+                                                            } value={j+1} label={<span style={{ fontSize: '14px' }}>{answer}</span>}/>
+                                                        </div>
+                                                    )
+
+                                                })}
+                                            </RadioGroup>
 
 
-                    </div>
-                    <div className={'row'}>
-                        <div className={'col-10 pt-5'}>
-                            <FormControl>
-                                <FormLabel id="demo-radio-buttons-group-label"><b>Која копомнента се користи за спојување на табели (она што во SQL e join)?</b></FormLabel>
-                                <RadioGroup
-                                    aria-labelledby="demo-radio-buttons-group-label"
-                                    defaultValue="female"
-                                    name="radio-buttons-group"
+                                        </div>
+                                    </div>
 
-                                >
-                                    <FormControlLabel value="Extract, Transform, Load" control={<Radio />} label="Lookup" />
-                                    <FormControlLabel value="Extract, Transform" control={<Radio />} label="Derived Column" />
-                                    <FormControlLabel value="Load" control={<Radio />} label="Data flow" />
-                                    <FormControlLabel value="asd" control={<Radio />} label="Conditional Split" />
-                                </RadioGroup>
-                            </FormControl>
-                        </div>
+                                </div>
 
-
-                    </div>
-                    <div className={'row'}>
-                        <div className={'col-10 pt-5'}>
-                            <FormControl>
-                                <FormLabel id="demo-radio-buttons-group-label"><b>Што е SSIS?</b></FormLabel>
-                                <RadioGroup
-                                    aria-labelledby="demo-radio-buttons-group-label"
-                                    defaultValue="female"
-                                    name="radio-buttons-group"
-
-                                >
-                                    <FormControlLabel value="Extract, Transform, Load" control={<Radio />} label="System Intefgation Services" />
-                                    <FormControlLabel value="Extract, Transform" control={<Radio />} label="SQL System Intefgation Services" />
-                                    <FormControlLabel value="Load" control={<Radio />} label="SQL Server Integration Services" />
-                                </RadioGroup>
-                            </FormControl>
-                        </div>
-
+                            )
+                        })}
 
                     </div>
-
-                    <div className={'row'}>
-                        <div className={'col-10 pt-5'}>
-                            <FormControl>
-                                <FormLabel id="demo-radio-buttons-group-label"><b>Која компонента се користи за спојување на резултати од податоци?</b></FormLabel>
-                                <RadioGroup
-                                    aria-labelledby="demo-radio-buttons-group-label"
-                                    defaultValue="female"
-                                    name="radio-buttons-group"
-
-                                >
-                                    <FormControlLabel value="Extract, Transform, Load" control={<Radio />} label="Merge Join" />
-                                    <FormControlLabel value="Extract, Transform" control={<Radio />} label="Lookup" />
-                                    <FormControlLabel value="Load" control={<Radio />} label="Derived Column" />
-                                    <FormControlLabel value="as" control={<Radio />} label="Conditional Split" />
-                                </RadioGroup>
-                            </FormControl>
-                        </div>
-
-
-                    </div>
-                    <a href={"/quizzes"} className={'btn btn-success m-3'}>Заврши го тестот!</a>
+                    <a onClick={() => setOpenSubmitExam(true)} className={'btn btn-success m-3'}>Заврши го тестот!</a>
             </div>
             </div>
+            <SubmitExam show={openSubmitExam} closeModal={closeSubmitExamModal} formik={formik}/>
         </>
     )
 
