@@ -1,4 +1,12 @@
-import {FETCH_COURSE, FETCH_COURSES, FETCH_QUESTIONS, FETCH_QUIZ, FETCH_QUIZZES, USER_LOGIN} from "../actionTypes";
+import {
+    ADD_QUESTION_FORUM,
+    FETCH_COURSE,
+    FETCH_COURSES,
+    FETCH_QUESTIONS,
+    FETCH_QUIZ,
+    FETCH_QUIZZES,
+    USER_LOGIN
+} from "../actionTypes";
 import axios from "../../axios/axiosInstance";
 
 
@@ -43,19 +51,10 @@ export const coursesAction = {
             })
         })
     },
-    addQuestion: (payload, callback) => dispatch => {
-        axios.post('/questions/addQuestion', payload)
-            .then(() => {
-                callback(true);
-            })
-            .catch(() => {
-                callback(false);
-            })
-    },
-    userLogIn (user) {
+    addQuestion(payload) {
         return {
-            type: USER_LOGIN,
-            user: user
+            type: ADD_QUESTION_FORUM,
+            question: payload
         }
     },
 }
