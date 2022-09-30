@@ -55,7 +55,7 @@ function Exam() {
                             <KeyboardBackspaceIcon fontSize={'big'}  onClick={() => history.goBack()}/>
                         </IconButton>
                     </div>
-                    <h3 className={'mb-5'}> Квиз прашања</h3>
+                    <h3 className={'mb-5 text-center'} style={{color:'rgb(100,149,237)'}}> Проверка на знаењето преку квиз</h3>
                     <div className={'row'}>
                         {exam && exam?.questions?.map((question, i) => {
                             return (
@@ -66,7 +66,7 @@ function Exam() {
                                     <div className={'col-8'} style={{
                                         textAlign: 'justify',
                                         overflow: 'hidden',
-                                        color: 'rgba(0,0,0,.55)'
+                                        color: 'rgb(100,149,237)'
                                     }}>
                                             <span style={{
                                                 fontWeight: 'bold'
@@ -84,12 +84,12 @@ function Exam() {
                                                         <div className={'row'}>
                                                             <FormControlLabel control={
                                                                 <Radio sx={{
-                                                                    color: 'grey',
+                                                                    color: 'rgb(100,149,237)',
                                                                     '&.Mui-checked': {
-                                                                        color: 'blue',
+                                                                        color: 'rgb(100,149,237)',
                                                                     },
                                                                     '&:hover': {
-                                                                        backgroundColor: 'blue'
+                                                                        backgroundColor: 'rgb(100,149,237)'
                                                                     },
                                                                 }} size={'small'}
                                                                 checked={answers?.find((ans) => ans.id === question.id).answer === j+1}/>
@@ -102,16 +102,18 @@ function Exam() {
 
 
                                         </div>
+                                        <hr/>
                                     </div>
 
                                 </div>
 
                             )
                         })}
-
                     </div>
-                    <a onClick={() => setOpenSubmitExam(true)} className={'btn btn-success m-3'}>Заврши го тестот!</a>
-            </div>
+                    <div className={'text-center'}>
+                    <a onClick={() => setOpenSubmitExam(true)} className={'btn btn-success btn-lg m-3'}>Заврши го тестот!</a>
+                    </div>
+                </div>
             </div>
             <SubmitExam show={openSubmitExam} closeModal={closeSubmitExamModal} formik={formik}/>
         </>
