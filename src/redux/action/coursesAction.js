@@ -1,4 +1,4 @@
-import {FETCH_COURSE, FETCH_COURSES, FETCH_QUESTIONS, FETCH_QUIZ, FETCH_QUIZZES} from "../actionTypes";
+import {FETCH_COURSE, FETCH_COURSES, FETCH_QUESTIONS, FETCH_QUIZ, FETCH_QUIZZES, USER_LOGIN} from "../actionTypes";
 import axios from "../../axios/axiosInstance";
 
 
@@ -42,5 +42,11 @@ export const coursesAction = {
                 questions: resp.data
             })
         })
+    },
+    userLogIn (user) {
+        return {
+            type: USER_LOGIN,
+            user: user
+        }
     },
 }

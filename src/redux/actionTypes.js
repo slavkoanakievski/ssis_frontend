@@ -11,3 +11,5 @@ export const FETCH_QUESTIONS = "FETCH_QUESTIONS"
 export const SELECT_QUESTION = "SELECT_QUESTION"
 
 export const GET_EXAM = "GET_EXAM"
+
+export const USER_LOGIN = "USER_LOGIN"

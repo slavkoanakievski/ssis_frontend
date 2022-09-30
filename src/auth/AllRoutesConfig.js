@@ -7,6 +7,8 @@ import QuizDetailsView from "../views/QuizDetailsView"
 import LectureView from  "../views/LectureView"
 import Forum from "../views/Forum"
 import Exam from "../views/Exam"
+import Login from "../views/Login"
+import Register from "../views/Register";
 
 export const routesConfig = [
     {
@@ -63,6 +65,19 @@ export const routesConfig = [
         title: 'ExamView',
         exact: true
     },
+    {
+        component: Login,
+        path: '/login',
+        title: 'Login',
+        exact: true
+    },
+    {
+        component: Register,
+        path: '/register',
+        title: 'Register',
+        exact: true
+    },
+
 
 
 ]
