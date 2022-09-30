@@ -53,10 +53,16 @@ export const routesConfig = [
     },
     {
         component: Exam,
-        path: '/exam',
+        path: '/exam/:id',
         title: 'Exam',
         exact: true
-    }
+    },
+    {
+        component: AllQuizzesView,
+        path: '/quizzes/result/:id',
+        title: 'ExamView',
+        exact: true
+    },
 
 
 ]

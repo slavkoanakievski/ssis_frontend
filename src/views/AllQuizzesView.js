@@ -1,8 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useHistory} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import {useStyles} from "../factory/StyleFactory";
 import {coursesViewStyle} from "./style/CoursesViewStyle";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {coursesAction} from "../redux/action/coursesAction";
 import QuizIcon from '@mui/icons-material/Quiz';
 import MenuTopBar from "./components/pageElements/MenuTopBar";
@@ -10,6 +10,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import {Chip} from "@mui/material";
 import {IconButton} from "@material-ui/core";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import ResultsReviewModal from "./modal/ResultsReviewModal";
 
 
 
@@ -18,10 +19,18 @@ function AllQuizzesView() {
     const history = useHistory();
     const classes = useStyles(coursesViewStyle);
     const quizzes = useSelector(state => state.course.quizzes);
+    const id = useParams();
+    const [openResultModal, setOpenResultModal] = useState(false);
+    const [result, setResult] = useState();
 
     useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(coursesAction.fetchQuizzes());
+        if(Boolean(id.id))
+        {
+            setOpenResultModal(true);
+            setResult(id.id)
+        }
     }, []);
 
 
@@ -61,6 +70,7 @@ function AllQuizzesView() {
                </div>
                </div>
            </div>
+           <ResultsReviewModal show={openResultModal} results={result} />
        </>
     )
 }
