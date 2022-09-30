@@ -43,6 +43,15 @@ export const coursesAction = {
             })
         })
     },
+    addQuestion: (payload, callback) => dispatch => {
+        axios.post('/questions/addQuestion', payload)
+            .then(() => {
+                callback(true);
+            })
+            .catch(() => {
+                callback(false);
+            })
+    },
     userLogIn (user) {
         return {
             type: USER_LOGIN,

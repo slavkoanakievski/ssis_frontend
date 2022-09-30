@@ -23,10 +23,10 @@ function ResultsReviewModal({show, results}) {
                     </div>
                 </Modal.Header>
                 <Modal.Body style={{backgroundColor: '#f9f9f9'}}>
-                   <h3 className={'text-center'}> Освоивте вкупно: {results} поени</h3>
+                   <h3 className={'text-center'} style={{color: 'rgba(0,0,0, .65)',}}> Освоивте вкупно: {results} поени</h3>
                 </Modal.Body>
                 <Modal.Footer>
-                    <button type="button" className="btn btn-white" onClick={() => history.push("/quizzes")}>Close</button>
+                    <button type="button" className="btn btn-white" onClick={() => history.push("/quizzes")}>Затвори</button>
                 </Modal.Footer>
             </Modal>
 
