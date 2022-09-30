@@ -1,4 +1,11 @@
-import {FETCH_COURSE, FETCH_COURSES, FETCH_QUESTIONS, FETCH_QUIZ, FETCH_QUIZZES} from "../actionTypes";
+import {
+    ADD_QUESTION_FORUM,
+    FETCH_COURSE,
+    FETCH_COURSES,
+    FETCH_QUESTIONS,
+    FETCH_QUIZ,
+    FETCH_QUIZZES
+} from "../actionTypes";
 
 const initialState = {
     courses: [],
@@ -37,6 +44,15 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 quiz: action.quiz
+            }
+        }
+        case ADD_QUESTION_FORUM: {
+            let newQuestions = {questionForumText: action.question.questionText, datePosted: new Date().toLocaleString(), answers: [], id: Math.random(),  formattedDatePublished: new Date().toLocaleString() }
+            let questions = state.questions;
+            questions.push(newQuestions)
+            return  {
+                ...state,
+                questions: questions
             }
         }
         default:
